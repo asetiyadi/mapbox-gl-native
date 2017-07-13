@@ -886,7 +886,7 @@ final class NativeMapView {
     }
   }
 
-  protected void onMapChanged(int rawChange) {
+  private void onMapChanged(int rawChange) {
     if (onMapChangedListeners != null) {
       for (MapView.OnMapChangedListener onMapChangedListener : onMapChangedListeners) {
         try {
@@ -896,6 +896,66 @@ final class NativeMapView {
         }
       }
     }
+  }
+
+  protected void onCameraRegionWillChange() {
+    Timber.e("onCameraRegionWillChange");
+  }
+
+  protected void onCameraRegionWillChangeAnimated() {
+    Timber.e("onCameraRegionWillChangeAnimated");
+  }
+
+  protected void onCameraIsChanging() {
+    Timber.e("onCameraIsChanging");
+  }
+
+  protected void onCameraRegionDidChange() {
+    Timber.e("onCameraDidChange");
+  }
+
+  protected void onCameraRegionDidChangeAnimated() {
+    Timber.e("onCameraDidChangeAnimated");
+  }
+
+  protected void onWillStartLoadingMap() {
+    Timber.e("onWillStartLoadingMap");
+  }
+
+  protected void onDidFinishLoadingMap() {
+    Timber.e("onDidFinishLoadingMap");
+  }
+
+  protected void onDidFailLoadingMap() {
+    Timber.e("onDidFailLoadingMap");
+  }
+
+  protected void onWillStartRenderingFrame() {
+    Timber.e("onWillStartRenderingFrame");
+  }
+
+  protected void onDidFinishRenderingFrame() {
+    Timber.e("onDidFinishRenderingFrame");
+  }
+
+  protected void onDidFinishRenderingFrameFullyRendered() {
+    Timber.e("onDidFinishRenderingFrameFullyRendered");
+  }
+
+  protected void onWillStartRenderingMap() {
+    Timber.e("onWillStartRenderingMap");
+  }
+
+  protected void onDidFinishedRenderingMapFullyRendered() {
+    Timber.e("onDidFinishRenderingMap");
+  }
+
+  protected void onDidFinishLoadingStyle() {
+    Timber.e("onDidFinishLoadingStyle");
+  }
+
+  protected void onSourceChanged() {
+    Timber.e("onSourceChanged");
   }
 
   protected void onFpsChanged(double fps) {
