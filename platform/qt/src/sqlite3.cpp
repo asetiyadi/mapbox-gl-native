@@ -1,5 +1,6 @@
 #include "sqlite3.hpp"
 
+#include <QFile>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
@@ -53,6 +54,10 @@ void checkDatabaseError(const QSqlDatabase &db) {
 class DatabaseImpl {
 public:
     DatabaseImpl(const char* filename, int flags) {
+        if (!(flags & OpenFlag::Create) & !QFile(filename).exists()) {
+            throw Exception { Exception::Code::CANTOPEN, "Database doesn't exist." };
+        }
+
         static uint64_t count = 0;
         const QString connectionName = QString::number(uint64_t(QThread::currentThread())) + QString::number(count++);
 
